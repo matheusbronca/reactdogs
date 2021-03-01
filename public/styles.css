@@ -54,7 +54,7 @@ label {
   margin-bottom: 0.25rem;
 }
 
-input,
+input[type='text'],
 textarea {
   display: block;
   border: 1px solid #ccc;
