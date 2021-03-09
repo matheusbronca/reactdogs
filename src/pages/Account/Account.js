@@ -1,23 +1,24 @@
 import React from 'react';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route, NavLink, useRouteMatch } from 'react-router-dom';
 import Feed from '../../components/Feed/Feed';
 import UserHeader from './UserHeader';
-import { useLocation } from 'react-router-dom';
+import UserPhotoPost from './UserPhotoPost';
+import UserStats from './UserStats';
 
 const Account = () => {
-  const location = useLocation();
+  const { path } = useRouteMatch();
 
   return (
     <section className="container">
       <UserHeader />
-      <NavLink to={`conta/teste`} exact>
-        TESTE
-      </NavLink>
-      <Route path="/conta" exact>
+      <Route path={path} exact>
         <Feed />
       </Route>
-      <Route path="/conta/teste">
-        <h2>DEU CERTO</h2>
+      <Route path={`${path}/postar`}>
+        <UserPhotoPost />
+      </Route>
+      <Route path={`${path}/estatisticas`}>
+        <UserStats />
       </Route>
     </section>
   );
