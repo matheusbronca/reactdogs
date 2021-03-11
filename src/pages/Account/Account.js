@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, NavLink, useRouteMatch } from 'react-router-dom';
+import { Route, useRouteMatch } from 'react-router-dom';
 import Feed from '../../components/Feed/Feed';
 import UserHeader from './UserHeader';
 import UserPhotoPost from './UserPhotoPost';
