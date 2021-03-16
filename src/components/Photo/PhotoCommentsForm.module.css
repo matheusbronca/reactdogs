@@ -40,6 +40,12 @@
   overflow: hidden;
 }
 
+@media (max-width: 65rem) {
+  .button {
+    padding: 0 0 0 0.75rem;
+  }
+}
+
 .button:focus,
 .button:hover {
   outline: none;

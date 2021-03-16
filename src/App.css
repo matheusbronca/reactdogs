@@ -59,6 +59,12 @@ input {
   z-index: 1;
 }
 
+@media (max-width: 40rem) {
+  .title {
+    font-size: 2.275rem;
+  }
+}
+
 .title::after {
   content: '';
   display: block;
@@ -90,4 +96,18 @@ input {
     opacity: 1;
     transform: initial;
   }
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh + 10rem);
+}
+
+.AppBody {
+  flex: 1;
+}
+
+.VictoryContainer {
+  height: initial !important;
 }

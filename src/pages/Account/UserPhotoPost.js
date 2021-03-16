@@ -7,6 +7,7 @@ import useFetch from '../../hooks/useFetch';
 import { PHOTO_POST } from '../../services/api';
 import Error from '../../components/Helper/Error';
 import { useHistory } from 'react-router-dom';
+import Head from '../../components/Helper/Head';
 
 const UserPhotoPost = () => {
   const nome = useForm();
@@ -29,16 +30,12 @@ const UserPhotoPost = () => {
     formData.append('peso', peso.value);
     formData.append('idade', idade.value);
 
-    console.log(nome, peso, idade, img);
-
     const token = window.localStorage.getItem('token');
     const { url, options } = PHOTO_POST(formData, token);
     request(url, options);
   }
 
   function handleImgChange({ target }) {
-    console.log(target.files);
-
     setImg({
       preview: URL.createObjectURL(target.files[0]),
       raw: target.files[0],
@@ -47,6 +44,7 @@ const UserPhotoPost = () => {
 
   return (
     <section className={`${styles.photoPost} animeLeft`}>
+      <Head title="Poste sua foto" />
       <form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="nome" {...nome} />
         <Input label="Peso" type="number" name="peso" {...peso} />
@@ -70,6 +68,12 @@ const UserPhotoPost = () => {
           <div
             className={styles.preview}
             style={{ backgroundImage: `url('${img.preview}')` }}
+          ></div>
+        )}
+        {!img.preview && (
+          <div
+            className={styles.preview}
+            style={{ backgroundColor: '#f9f9f9' }}
           ></div>
         )}
       </div>

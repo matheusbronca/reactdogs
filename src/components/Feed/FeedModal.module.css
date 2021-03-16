@@ -12,6 +12,6 @@
 
 @media (max-width: 40rem) {
   .modal {
-    padding: 2rem calc(2rem + 15px) 2rem 2rem;
+    padding: 2rem;
   }
 }

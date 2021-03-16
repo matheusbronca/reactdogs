@@ -6,7 +6,13 @@ import Error from '../Helper/Error';
 import Loading from '../Helper/Loading';
 import styles from './FeedPhotos.module.css';
 
-const FeedPhotos = ({ page, user, setModalPhoto, setInfinite }) => {
+const FeedPhotos = ({
+  page,
+  user,
+  setModalPhoto,
+  setInfinite,
+  setHasPhoto,
+}) => {
   const { data, loading, error, request } = useFetch();
 
   React.useEffect(() => {
@@ -16,10 +22,11 @@ const FeedPhotos = ({ page, user, setModalPhoto, setInfinite }) => {
       // eslint-disable-next-line no-unused-vars
       const { response, json } = await request(url, options);
       if (response && response.ok && json.length < total) setInfinite(false);
+      if (response && response.ok && json.length > 0) setHasPhoto(true);
     }
 
     fetchPhotos();
-  }, [request, user, page, setInfinite]);
+  }, [request, user, page, setInfinite, setHasPhoto]);
 
   if (error) return <Error error={error} />;
   if (loading) return <Loading />;

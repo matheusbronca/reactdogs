@@ -15,7 +15,7 @@ const Header = () => {
         </NavLink>
         {data ? (
           <NavLink className={styles.login} to="/conta">
-            {data.nome}
+            {'@' + data.nome}
           </NavLink>
         ) : (
           <NavLink className={styles.login} to="/login">

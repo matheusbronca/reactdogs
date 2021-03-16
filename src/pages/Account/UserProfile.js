@@ -1,15 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import Feed from '../../components/Feed/Feed';
+import Head from '../../components/Helper/Head';
 
 const UserProfile = () => {
   const { user } = useParams();
 
   return (
-    <div className="container mainSection">
+    <section className="container mainSection">
+      <Head title={user} />
       <h1 className="title">{user}</h1>
       <Feed user={user} />
-    </div>
+    </section>
   );
 };
 

@@ -45,13 +45,13 @@ const UserHeaderNav = () => {
           <FeedIcon />
           {mobile && 'Minhas Fotos'}
         </NavLink>
-        <NavLink to={`${url}/estatisticas`} activeClassName={styles.active}>
-          <StatsIcon />
-          {mobile && 'Estatísticas'}
-        </NavLink>
         <NavLink to={`${url}/postar`} activeClassName={styles.active}>
           <AddPhotoIcon />
           {mobile && 'Adicionar Foto'}
+        </NavLink>
+        <NavLink to={`${url}/estatisticas`} activeClassName={styles.active}>
+          <StatsIcon />
+          {mobile && 'Estatísticas'}
         </NavLink>
         <button onClick={userLogout}>
           <ExitIcon />

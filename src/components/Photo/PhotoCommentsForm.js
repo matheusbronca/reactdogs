@@ -32,7 +32,7 @@ const PhotoCommentsForm = ({ id, setComments, single }) => {
       <button className={styles.button} onClick={handleSubmit}>
         <Send />
       </button>
-      <Error error={error} />
+      {/* {error && <Error error={error} />} */}
     </form>
   );
 };

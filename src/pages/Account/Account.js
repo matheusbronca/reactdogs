@@ -6,6 +6,7 @@ import { UserContext } from '../../context/UserContext';
 import UserHeader from './UserHeader';
 import UserPhotoPost from './UserPhotoPost';
 import UserStats from './UserStats';
+import Head from '../../components/Helper/Head';
 
 const Account = () => {
   const { path } = useRouteMatch();
@@ -13,6 +14,7 @@ const Account = () => {
 
   return (
     <section className="container">
+      <Head title="Minhas Fotos" />
       <UserHeader />
       <Switch>
         <Route path={path} exact>

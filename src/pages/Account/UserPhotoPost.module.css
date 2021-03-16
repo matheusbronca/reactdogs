@@ -5,6 +5,12 @@
   margin-bottom: 2rem;
 }
 
+@media (max-width: 40rem) {
+  .photoPost {
+    grid-template-columns: 1fr;
+  }
+}
+
 .inputImg {
   margin-bottom: 1rem;
 }
@@ -13,11 +19,12 @@
   border-radius: 1rem;
   background-size: cover;
   background-position: center center;
+  background-color: #eee;
 }
 
 .preview::after {
-    content: '';
-    display: block;
-    height: 0px;
-    padding-bottom: 100%;
+  content: '';
+  display: block;
+  height: 0px;
+  padding-bottom: 100%;
 }

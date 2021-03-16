@@ -2,11 +2,18 @@ import React from 'react';
 import FeedModal from './FeedModal.js';
 import FeedPhotos from './FeedPhotos.js';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { ReactComponent as NoPhotoIcon } from '../../assets/no-photo.svg';
+import styles from './Feed.module.css';
+import history from 'history/browser';
 
 const Feed = ({ user }) => {
   const [modalPhoto, setModalPhoto] = React.useState(null);
   const [pages, setPages] = React.useState([1]);
   const [infinite, setInfinite] = React.useState(true);
+  const location = useLocation();
+  const [hasPhoto, setHasPhoto] = React.useState(false);
 
   React.useEffect(() => {
     let wait = false;
@@ -34,6 +41,16 @@ const Feed = ({ user }) => {
     };
   }, [infinite]);
 
+  React.useEffect(() => {
+    history.push(null, null, document.URL);
+
+    window.addEventListener('popstate', (e) => {
+      if (modalPhoto === null) {
+        history.push(null, null, document.URL);
+      }
+    });
+  }, [modalPhoto]);
+
   return (
     <div>
       {modalPhoto && (
@@ -46,18 +63,47 @@ const Feed = ({ user }) => {
           page={page}
           setModalPhoto={setModalPhoto}
           setInfinite={setInfinite}
+          setHasPhoto={setHasPhoto}
         />
       ))}
+      {!infinite && !user && (
+        <p
+          style={{
+            textAlign: 'center',
+            padding: '2rem 0 4rem 0',
+            color: '#888',
+          }}
+        >
+          Não existem mais postagens a serem exibidas.
+        </p>
+      )}
+      {!infinite && user !== 0 && !hasPhoto && (
+        <div className={styles.card}>
+          <NoPhotoIcon />
+          <div className={styles.card__text}>
+            <p>Woof!, parece que você ainda não tem nenhuma foto...</p>
+            <Link
+              style={{ textDecoration: 'underline' }}
+              to={`${location.pathname}/postar`}
+            >
+              Adicionar uma foto
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 Feed.defaultProps = {
   user: 0,
-}
+};
 
 Feed.propTypes = {
-  user: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired])
-}
+  user: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired,
+  ]),
+};
 
 export default Feed;
