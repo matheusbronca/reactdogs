@@ -1,25 +1,31 @@
 import React from 'react';
-import { Route, useRouteMatch } from 'react-router-dom';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Feed from '../../components/Feed/Feed';
+import notFound from '../../components/notFound';
+import { UserContext } from '../../context/UserContext';
 import UserHeader from './UserHeader';
 import UserPhotoPost from './UserPhotoPost';
 import UserStats from './UserStats';
 
 const Account = () => {
   const { path } = useRouteMatch();
+  const { data } = React.useContext(UserContext);
 
   return (
     <section className="container">
       <UserHeader />
-      <Route path={path} exact>
-        <Feed />
-      </Route>
-      <Route path={`${path}/postar`}>
-        <UserPhotoPost />
-      </Route>
-      <Route path={`${path}/estatisticas`}>
-        <UserStats />
-      </Route>
+      <Switch>
+        <Route path={path} exact>
+          <Feed user={data.id} />
+        </Route>
+        <Route path={`${path}/postar`}>
+          <UserPhotoPost />
+        </Route>
+        <Route path={`${path}/estatisticas`}>
+          <UserStats />
+        </Route>
+        <Route path={`${path}/*`} component={notFound} />
+      </Switch>
     </section>
   );
 };

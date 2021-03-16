@@ -12,6 +12,7 @@ import LoginPasswordLost from './LoginPasswordLost';
 import LoginPasswordReset from './LoginPasswordReset';
 import { UserContext } from '../../context/UserContext';
 import styles from './Login.module.css';
+import notFound from '../../components/notFound';
 
 const Login = () => {
   let match = useRouteMatch();
@@ -38,6 +39,7 @@ const Login = () => {
           <Route path={`${match.path}/reset`}>
             <LoginPasswordReset />
           </Route>
+          <Route path={`${match.path}/*`} component={notFound} />
         </Switch>
       </div>
     </section>
