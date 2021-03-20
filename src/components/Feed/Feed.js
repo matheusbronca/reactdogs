@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { ReactComponent as NoPhotoIcon } from '../../assets/no-photo.svg';
 import styles from './Feed.module.css';
-import history from 'history/browser';
 
 const Feed = ({ user }) => {
   const [modalPhoto, setModalPhoto] = React.useState(null);
@@ -40,16 +39,6 @@ const Feed = ({ user }) => {
       window.removeEventListener('scroll', infiniteScroll);
     };
   }, [infinite]);
-
-  React.useEffect(() => {
-    history.push(null, null, document.URL);
-
-    window.addEventListener('popstate', (e) => {
-      if (modalPhoto === null) {
-        history.push(null, null, document.URL);
-      }
-    });
-  }, [modalPhoto]);
 
   return (
     <div>

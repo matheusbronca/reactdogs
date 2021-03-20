@@ -11,7 +11,7 @@ import Head from '../../components/Helper/Head';
 const Account = () => {
   const { path } = useRouteMatch();
   const { data } = React.useContext(UserContext);
-
+  
   return (
     <section className="container">
       <Head title="Minhas Fotos" />

@@ -2,7 +2,19 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: stretch;
+  padding: 1rem;
+}
+
+.form.single {
   margin: 1rem;
+  padding: 0 0 1rem 0;
+}
+
+@media (max-width: 65rem) {
+  .form.single {
+    padding: 0;
+    padding-bottom: 1rem;
+  }
 }
 
 .form.single {

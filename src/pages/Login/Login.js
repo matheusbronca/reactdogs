@@ -17,10 +17,26 @@ import notFound from '../../components/notFound';
 const Login = () => {
   let match = useRouteMatch();
   const location = useLocation();
-
+  const [redirect, setRedirect] = React.useState(null);
   const { login } = React.useContext(UserContext);
 
-  if (login === true)
+  React.useEffect(() => {
+    if (location.state)
+      location.state.redirect && setRedirect(location.state.redirect);
+  }, [location, redirect]);
+
+  if (login && redirect) {
+    if (redirect.type === 'comment')
+      return (
+        <Redirect
+          to={{
+            pathname: `/foto/${location.state.redirect.id}`,
+            state: { from: location, inputFocus: true },
+          }}
+        />
+      );
+  }
+  if (login)
     return <Redirect to={{ pathname: '/conta', state: { from: location } }} />;
   return (
     <section className={styles.login}>

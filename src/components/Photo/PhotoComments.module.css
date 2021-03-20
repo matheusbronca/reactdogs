@@ -1,7 +1,35 @@
+.commentsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .comments {
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   word-break: break-word;
   padding: 0 2rem;
+  flex: 1;
+}
+
+@media (max-width: 65rem) {
+  .comments {
+    overflow: hidden;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  /* .bottomBar > li > a::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    transform: translate(-35px, -50%);
+    background: url('../../assets/enviar.svg') no-repeat center;
+    background-size: contain;
+  } */
 }
 
 .single.comments {
@@ -11,4 +39,13 @@
 .comments li {
   margin-bottom: 0.5rem;
   line-height: 1.2;
+}
+
+.wrapperRedirect {
+  margin: 0.5rem 0 2rem 0;
+}
+
+.redirectLink {
+  color: rgb(185, 185, 185);
+  text-decoration: underline;
 }

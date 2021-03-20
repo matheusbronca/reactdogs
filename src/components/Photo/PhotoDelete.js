@@ -7,7 +7,7 @@ const PhotoDelete = ({ id }) => {
   const { loading, request } = useFetch();
 
   async function handleClick() {
-    const confirm = window.confirm('Tem certeza que deseja deletar?');
+    const confirm = window.confirm('Tem certeza que deseja deletar essa publicação?');
 
     if (confirm) {
       const { url, options } = PHOTO_DELETE(id);

@@ -2,17 +2,23 @@ import React from 'react';
 import styles from './Image.module.css';
 
 const Image = ({ alt, ...props }) => {
-  const [skeleton, setSkeleton] = React.useState(true);
+  const [loaded, setLoaded] = React.useState(false);
+  const imgPlaceholder = `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E`;
 
-  function handleLoad({ target }) {
-    setSkeleton(false);
-    target.style.opacity = 1;
+  function handleLoad() {
+    setLoaded(true);
   }
 
   return (
     <div className={styles.wrapper}>
-      {skeleton && <div className={styles.skeleton}></div>}
-      <img onLoad={handleLoad} className={styles.img} alt={alt} {...props} />
+      <img src={imgPlaceholder} className={styles.skeleton} alt="Placeholder" />
+      <img
+        style={{ display: loaded ? 'flex' : 'none' }}
+        className={loaded ? styles.img : undefined}
+        alt={alt}
+        onLoad={handleLoad}
+        {...props}
+      />
     </div>
   );
 };

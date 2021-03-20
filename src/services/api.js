@@ -63,6 +63,10 @@ export function PHOTOS_GET({ page, total, user }) {
 export function PHOTO_GET(id) {
   return {
     url: `${API_URL}/api/photo/${id}`,
+    options: {
+      method: 'GET',
+      cache: 'no-store',
+    },
   };
 }
 
@@ -137,7 +141,7 @@ export function GET_STATS(body) {
     options: {
       methos: 'GET',
       headers: {
-        Authorization: 'Bearer ' + window.localStorage.getItem('token')
+        Authorization: 'Bearer ' + window.localStorage.getItem('token'),
       },
     },
   };

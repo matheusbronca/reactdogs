@@ -19,7 +19,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     if (username.validate() && password.validate())
-      userLogin(username.value, password.value);
+      await userLogin(username.value, password.value);
   }
 
   return (

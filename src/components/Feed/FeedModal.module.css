@@ -12,6 +12,8 @@
 
 @media (max-width: 40rem) {
   .modal {
-    padding: 2rem;
+    height: auto;
+    min-height: 100vh;
+    padding: 1rem;
   }
 }
