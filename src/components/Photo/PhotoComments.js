@@ -23,6 +23,7 @@ const PhotoComments = ({ id, comments: comnts, single, inputFocus }) => {
         className={`${styles.comments} ${single ? styles.single : ''}`}
       >
         {!single &&
+          isMobile &&
           comments.map((comment, index, arr) =>
             index > arr.length - 4 ? (
               <li key={comment.comment_ID}>
@@ -31,6 +32,14 @@ const PhotoComments = ({ id, comments: comnts, single, inputFocus }) => {
               </li>
             ) : null
           )}
+        {!single &&
+          !isMobile &&
+          comments.map((comment) => (
+            <li key={comment.comment_ID}>
+              <b>{comment.comment_author}: </b>
+              <span>{comment.comment_content}</span>
+            </li>
+          ))}
         {isMobile && !single && comments.length > 3 && (
           <div className={styles.wrapperRedirect}>
             <Link to={`/foto/${id}`} className={styles.redirectLink}>

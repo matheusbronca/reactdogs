@@ -11,10 +11,14 @@ const Image = ({ alt, ...props }) => {
 
   return (
     <div className={styles.wrapper}>
-      <img src={imgPlaceholder} className={styles.skeleton} alt="Placeholder" />
+      <img
+        src={imgPlaceholder}
+        className={loaded ? styles.box : styles.skeleton}
+        alt="Placeholder"
+      />
       <img
         style={{ display: loaded ? 'flex' : 'none' }}
-        className={loaded ? styles.img : undefined}
+        className={loaded ? styles.img : ''}
         alt={alt}
         onLoad={handleLoad}
         {...props}

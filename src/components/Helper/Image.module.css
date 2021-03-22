@@ -1,19 +1,23 @@
 .wrapper {
   display: flex;
   position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .img {
   position: absolute;
   left: 0;
   top: 0;
+  bottom: 0;
+  right: 0;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  flex: 1;
   max-width: 100%;
   object-fit: cover;
-  animation: fadein .5s forwards;
+  animation: fadein 0.4s forwards;
   opacity: 0;
 }
 
@@ -31,6 +35,12 @@
   animation: skeleton 1.5s infinite linear;
   object-fit: cover;
   opacity: 1;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
 }
 
 @keyframes skeleton {

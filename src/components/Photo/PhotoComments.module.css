@@ -1,6 +1,8 @@
 .commentsWrapper {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .comments {
@@ -8,6 +10,7 @@
   flex-direction: column;
   overflow-y: auto;
   word-break: break-word;
+  max-height: 18.5rem;
   padding: 0 2rem;
   flex: 1;
 }
@@ -17,19 +20,15 @@
     overflow: hidden;
     flex-direction: column;
     flex: 1;
+    overflow-y: scroll;
+    max-height: 6.5rem;
   }
+}
 
-  /* .bottomBar > li > a::before {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 50%;
-    transform: translate(-35px, -50%);
-    background: url('../../assets/enviar.svg') no-repeat center;
-    background-size: contain;
-  } */
+@media (max-width: 40rem) {
+  .comments {
+    font-size: .875rem;
+  }
 }
 
 .single.comments {

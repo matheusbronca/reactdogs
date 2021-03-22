@@ -24,6 +24,7 @@
   }
 
   .total {
+    font-size: 1.1rem;
     grid-column: 1;
   }
 }

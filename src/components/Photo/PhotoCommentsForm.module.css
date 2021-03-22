@@ -42,6 +42,19 @@
   box-shadow: 0 0 0 3px #fea;
 }
 
+.textarea__disabled {
+  background: #eee;
+  border-color: gray;
+  box-shadow: 0 0 0 3px #eee;
+}
+
+.textarea__disabled:focus,
+.textarea__disabled:hover {
+  background: #eee;
+  border-color: rgb(207, 207, 207);
+  box-shadow: 0 0 0 3px #eee;
+}
+
 .button {
   border: none;
   cursor: pointer;

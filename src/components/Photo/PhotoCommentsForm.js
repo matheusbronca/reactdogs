@@ -5,10 +5,12 @@ import useFetch from '../../hooks/useFetch';
 import { COMMENT_POST } from '../../services/api';
 import styles from './PhotoCommentsForm.module.css';
 const PhotoCommentsForm = ({ login, id, setComments, single, inputFocus }) => {
-  const { request } = useFetch();
+  const { request, loading } = useFetch();
   const [comment, setComment] = React.useState('');
   const commentInput = React.useRef(null);
   const isMobile = useDeviceDetect();
+
+  console.log(loading);
 
   React.useEffect(() => {
     if (inputFocus && login) {
@@ -38,9 +40,16 @@ const PhotoCommentsForm = ({ login, id, setComments, single, inputFocus }) => {
 
   if (login)
     return (
-      <form className={`${styles.form} ${single ? styles.single : ''}`}>
+      <form
+        className={`${styles.form} ${single ? styles.single : ''}`}
+        onSubmit={handleSubmit}
+      >
         <textarea
-          className={styles.textarea}
+          className={
+            !loading
+              ? styles.textarea
+              : `${styles.textarea} ${styles.textarea__disabled}`
+          }
           id="comment"
           name="comment"
           placeholder="Comente..."
@@ -48,7 +57,7 @@ const PhotoCommentsForm = ({ login, id, setComments, single, inputFocus }) => {
           onChange={({ target }) => setComment(target.value)}
           ref={commentInput}
         />
-        <button className={styles.button} onClick={handleSubmit}>
+        <button className={styles.button} disabled={loading}>
           <Send />
         </button>
       </form>

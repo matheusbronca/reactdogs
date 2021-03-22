@@ -106,6 +106,14 @@
   margin-bottom: 2rem;
 }
 
+@media (max-width: 40rem) {
+  .attributes {
+    font-size: 1rem;
+    margin-top: -.5rem;
+    margin-bottom: 1.75rem;
+  }
+}
+
 .attributes li {
   margin-right: 2rem;
 }
@@ -129,8 +137,8 @@
 
 @media (max-width: 64rem) {
   .photo {
-    margin: 0 auto;
-    min-height: 90vh;
+    /* margin: auto; */
+    height: 100%;
     grid-template-columns: minmax(10rem, 35rem);
     grid-template-rows: minmax(1rem, auto) min-content auto;
   }

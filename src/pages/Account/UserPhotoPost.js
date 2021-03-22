@@ -53,6 +53,7 @@ const UserPhotoPost = () => {
           type="file"
           name="img"
           id="img"
+          accept="image/*"
           className={styles.inputImg}
           onChange={handleImgChange}
         />

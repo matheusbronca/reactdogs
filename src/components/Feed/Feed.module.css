@@ -1,9 +1,10 @@
 .card {
-  margin-top: 20%;
+  margin-top: calc(20% - 4rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 4rem;
 }
 
 .card svg {

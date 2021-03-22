@@ -2,7 +2,7 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  top: 0px;
+  bottom: 0px;
   left: 0px;
   background: rgba(0, 0, 0, 0.4);
   display: flex;
@@ -10,10 +10,9 @@
   padding: 2rem calc(4rem + 15px) 2rem 4rem;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 65rem) {
   .modal {
-    height: auto;
-    min-height: 100vh;
-    padding: 1rem;
+    height: 100%;
+    padding: 1.5rem;
   }
 }

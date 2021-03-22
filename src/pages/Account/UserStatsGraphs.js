@@ -28,7 +28,12 @@ const UserStatsGraphs = ({ data }) => {
       <div className={`${styles.total} ${styles.graphItem}`}>
         <p>Acessos: {total}</p>
       </div>
-      <div className={styles.graphItem}>
+      <div
+        className={styles.graphItem}
+        style={{
+          touchAction: 'auto',
+        }}
+      >
         <VictoryPie
           data={graph}
           innerRadius={50}
@@ -46,7 +51,7 @@ const UserStatsGraphs = ({ data }) => {
           }}
         />
       </div>
-      <div className={styles.graphItem}>
+      <div className={styles.graphItem} style={{ touchAction: 'auto' }}>
         <VictoryChart>
           <VictoryBar
             alignment="start"

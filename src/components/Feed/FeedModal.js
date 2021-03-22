@@ -14,6 +14,11 @@ const FeedModal = ({ photo, setModalPhoto }) => {
     request(url, options);
   }, [photo, request]);
 
+  React.useEffect(() => {
+      window.scrollTo(0, 1);
+      document.addEventListener("touchmove", function(e) { e.preventDefault() });
+  }, [data]);
+
   function handleOutsideClick(e) {
     const { currentTarget, target } = e;
     if (currentTarget === target) setModalPhoto(null);

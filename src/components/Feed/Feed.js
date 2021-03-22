@@ -59,7 +59,7 @@ const Feed = ({ user }) => {
         <p
           style={{
             textAlign: 'center',
-            padding: '2rem 0 4rem 0',
+            padding: '2rem 0 2rem 0',
             color: '#888',
           }}
         >
