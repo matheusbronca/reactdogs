@@ -15,16 +15,6 @@ const PhotoCommentsForm = ({ login, id, setComments, single, inputFocus }) => {
   React.useEffect(() => {
     if (inputFocus && login) {
       commentInput.current.focus();
-
-      if (!isMobile) {
-        setTimeout(() => {
-          commentInput.current.scrollIntoView({
-            block: 'end',
-            behavior: 'smooth',
-            inline: 'end',
-          });
-        }, 1000);
-      }
     }
   });
 
